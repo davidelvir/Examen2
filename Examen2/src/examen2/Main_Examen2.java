@@ -5,10 +5,14 @@
  */
 package examen2;
 
+import java.io.File;
 import java.util.ArrayList;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.tree.DefaultMutableTreeNode;
+import javax.swing.tree.DefaultTreeModel;
+import javax.swing.tree.MutableTreeNode;
 
 /**
  *
@@ -113,7 +117,7 @@ public class Main_Examen2 extends javax.swing.JFrame {
         jButton25 = new javax.swing.JButton();
         jPanel8 = new javax.swing.JPanel();
         jScrollPane4 = new javax.swing.JScrollPane();
-        jTree1 = new javax.swing.JTree();
+        jt_playlists = new javax.swing.JTree();
         jButton27 = new javax.swing.JButton();
         jd_favoritos = new javax.swing.JDialog();
         jScrollPane6 = new javax.swing.JScrollPane();
@@ -782,6 +786,12 @@ public class Main_Examen2 extends javax.swing.JFrame {
                         .addGap(88, 88, 88))))
         );
 
+        jTabbedPane3.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                jTabbedPane3StateChanged(evt);
+            }
+        });
+
         jLabel16.setText("Nombre");
 
         jButton25.setText("Crear");
@@ -823,7 +833,9 @@ public class Main_Examen2 extends javax.swing.JFrame {
 
         jTabbedPane3.addTab("Crear Playlists", jPanel7);
 
-        jScrollPane4.setViewportView(jTree1);
+        javax.swing.tree.DefaultMutableTreeNode treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("Playlist");
+        jt_playlists.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
+        jScrollPane4.setViewportView(jt_playlists);
 
         jButton27.setText("Regresar");
         jButton27.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -1514,6 +1526,22 @@ public class Main_Examen2 extends javax.swing.JFrame {
         this.jd_playlists.setVisible(false);
     }//GEN-LAST:event_jButton27MouseClicked
 
+    private void jTabbedPane3StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jTabbedPane3StateChanged
+        // TODO add your handling code here:
+        DefaultTreeModel modelo = (DefaultTreeModel) this.jt_playlists.getModel();
+        DefaultMutableTreeNode raiz = (DefaultMutableTreeNode) (MutableTreeNode) modelo.getRoot();
+        //DefaultMutableTreeNode playlist;
+        //DefaultMutableTreeNode cancion;
+        for(Playlist t : activo.getPlaylists()){
+            DefaultMutableTreeNode playlist = new DefaultMutableTreeNode(t.getNombre());
+            raiz.add(playlist);
+            for(Cancion c : t.getCanciones()){
+                DefaultMutableTreeNode cancion = new DefaultMutableTreeNode(c.getNombre());
+                playlist.add(cancion);
+            }
+        }
+    }//GEN-LAST:event_jTabbedPane3StateChanged
+
     /**
      * @param args the command line arguments
      */
@@ -1621,7 +1649,6 @@ public class Main_Examen2 extends javax.swing.JFrame {
     private javax.swing.JTable jTable5;
     private javax.swing.JTable jTable6;
     private javax.swing.JTable jTable7;
-    private javax.swing.JTree jTree1;
     private javax.swing.JDialog jd_album;
     private javax.swing.JDialog jd_canciones;
     private javax.swing.JDialog jd_explorar;
@@ -1631,6 +1658,7 @@ public class Main_Examen2 extends javax.swing.JFrame {
     private javax.swing.JDialog jd_playlists;
     private javax.swing.JDialog jd_usuarios;
     private javax.swing.JLabel jl_play;
+    private javax.swing.JTree jt_playlists;
     private javax.swing.JTextField tf_artista;
     private javax.swing.JTextField tf_artistaA;
     private javax.swing.JTextField tf_duracion;
@@ -1649,4 +1677,5 @@ public class Main_Examen2 extends javax.swing.JFrame {
     ArrayList<Album>albums = new ArrayList();
     Usuario activo = new Usuario();
     adminUsuario au = new adminUsuario("./usuarios.cbm");
+    
 }
