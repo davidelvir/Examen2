@@ -123,8 +123,11 @@ public class Main_Examen2 extends javax.swing.JFrame {
         jScrollPane6 = new javax.swing.JScrollPane();
         jTable6 = new javax.swing.JTable();
         jButton26 = new javax.swing.JButton();
-        jLabel17 = new javax.swing.JLabel();
+        jp_favoritos = new javax.swing.JPanel();
         jl_play = new javax.swing.JLabel();
+        jl_cancion = new javax.swing.JLabel();
+        pb_favoritos = new javax.swing.JProgressBar();
+        jLabel17 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
@@ -409,6 +412,12 @@ public class Main_Examen2 extends javax.swing.JFrame {
                 .addContainerGap(46, Short.MAX_VALUE))
         );
 
+        jTabbedPane2.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                jTabbedPane2StateChanged(evt);
+            }
+        });
+
         jLabel10.setText("Nombre");
 
         jLabel11.setText("Artista");
@@ -658,6 +667,11 @@ public class Main_Examen2 extends javax.swing.JFrame {
         });
 
         jButton22.setText("Salir");
+        jButton22.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton22MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jd_menu2Layout = new javax.swing.GroupLayout(jd_menu2.getContentPane());
         jd_menu2.getContentPane().setLayout(jd_menu2Layout);
@@ -906,9 +920,46 @@ public class Main_Examen2 extends javax.swing.JFrame {
             }
         });
 
+        jl_play.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        jl_cancion.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
         jLabel17.setText("Reproduciendo");
 
-        jl_play.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        javax.swing.GroupLayout jp_favoritosLayout = new javax.swing.GroupLayout(jp_favoritos);
+        jp_favoritos.setLayout(jp_favoritosLayout);
+        jp_favoritosLayout.setHorizontalGroup(
+            jp_favoritosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jp_favoritosLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel17)
+                .addGroup(jp_favoritosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jp_favoritosLayout.createSequentialGroup()
+                        .addGap(37, 37, 37)
+                        .addComponent(pb_favoritos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jp_favoritosLayout.createSequentialGroup()
+                        .addGap(16, 16, 16)
+                        .addComponent(jl_cancion, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jl_play, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(23, 23, 23))
+        );
+        jp_favoritosLayout.setVerticalGroup(
+            jp_favoritosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jp_favoritosLayout.createSequentialGroup()
+                .addGroup(jp_favoritosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jp_favoritosLayout.createSequentialGroup()
+                        .addGap(29, 29, 29)
+                        .addGroup(jp_favoritosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jl_cancion, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jl_play, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jp_favoritosLayout.createSequentialGroup()
+                        .addGap(42, 42, 42)
+                        .addComponent(jLabel17)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(pb_favoritos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
 
         javax.swing.GroupLayout jd_favoritosLayout = new javax.swing.GroupLayout(jd_favoritos.getContentPane());
         jd_favoritos.getContentPane().setLayout(jd_favoritosLayout);
@@ -917,29 +968,22 @@ public class Main_Examen2 extends javax.swing.JFrame {
             .addGroup(jd_favoritosLayout.createSequentialGroup()
                 .addGroup(jd_favoritosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jd_favoritosLayout.createSequentialGroup()
-                        .addGap(124, 124, 124)
-                        .addComponent(jLabel17)
-                        .addGap(33, 33, 33)
-                        .addComponent(jl_play, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jd_favoritosLayout.createSequentialGroup()
                         .addGap(71, 71, 71)
                         .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jd_favoritosLayout.createSequentialGroup()
                         .addGap(247, 247, 247)
-                        .addComponent(jButton26)))
+                        .addComponent(jButton26))
+                    .addGroup(jd_favoritosLayout.createSequentialGroup()
+                        .addGap(139, 139, 139)
+                        .addComponent(jp_favoritos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(119, Short.MAX_VALUE))
         );
         jd_favoritosLayout.setVerticalGroup(
             jd_favoritosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jd_favoritosLayout.createSequentialGroup()
-                .addGroup(jd_favoritosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jd_favoritosLayout.createSequentialGroup()
-                        .addGap(64, 64, 64)
-                        .addComponent(jLabel17))
-                    .addGroup(jd_favoritosLayout.createSequentialGroup()
-                        .addGap(55, 55, 55)
-                        .addComponent(jl_play, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(33, 33, 33)
+                .addGap(12, 12, 12)
+                .addComponent(jp_favoritos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(44, 44, 44)
                 .addComponent(jButton26)
@@ -1189,6 +1233,8 @@ public class Main_Examen2 extends javax.swing.JFrame {
         String nombre = tf_nombreA.getText();
         String artista = tf_artistaA.getText();
         albums.add(new Album(nombre,artista));
+        tf_nombreA.setText("");
+        tf_artistaA.setText("");
         JOptionPane.showMessageDialog(jd_album, "Album agregado");
     }//GEN-LAST:event_jButton13MouseClicked
 
@@ -1426,11 +1472,11 @@ public class Main_Examen2 extends javax.swing.JFrame {
         // TODO add your handling code here:
         if(this.jTable6.getSelectedRow() >= 0){
           int x = this.jTable6.getSelectedRow();
-          Hilo_Play play = new Hilo_Play(jl_play,activo.getFavoritos().get(x));
+          this.jl_cancion.setText(activo.getFavoritos().get(x).getNombre());
+          this.pb_favoritos.setMaximum(activo.getFavoritos().get(x).getDuracion());
+          Hilo_Play play = new Hilo_Play(jl_play,activo.getFavoritos().get(x),pb_favoritos);
           play.start();
-          if(play.isAlive() == false){
-              jl_play.setVisible(false);
-          }
+          pb_favoritos.setValue(0);
         }
         
     }//GEN-LAST:event_jButton26MouseClicked
@@ -1539,8 +1585,62 @@ public class Main_Examen2 extends javax.swing.JFrame {
                 DefaultMutableTreeNode cancion = new DefaultMutableTreeNode(c.getNombre());
                 playlist.add(cancion);
             }
+            modelo.reload();
         }
     }//GEN-LAST:event_jTabbedPane3StateChanged
+
+    private void jTabbedPane2StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jTabbedPane2StateChanged
+        // TODO add your handling code here:
+        jTable3.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Nombre", "Artista"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        jTable7.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Nombre", "Artista"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class
+            };
+            
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        for (Album tem : albums){
+                Album p;
+                DefaultTableModel modelo = (DefaultTableModel) this.jTable3.getModel();
+                DefaultTableModel modelo2 = (DefaultTableModel) this.jTable7.getModel();
+                p = tem;
+                Object[] row = {p.getNombre(),p.getArtista()};
+                modelo.addRow(row);
+                modelo2.addRow(row);
+                this.jTable7.setModel(modelo);
+                this.jTable3.setModel(modelo2);
+            }
+    }//GEN-LAST:event_jTabbedPane2StateChanged
+
+    private void jButton22MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton22MouseClicked
+        // TODO add your handling code here:
+        jd_menu2.setVisible(false);
+        activo = null;
+    }//GEN-LAST:event_jButton22MouseClicked
 
     /**
      * @param args the command line arguments
@@ -1657,8 +1757,11 @@ public class Main_Examen2 extends javax.swing.JFrame {
     private javax.swing.JDialog jd_menu2;
     private javax.swing.JDialog jd_playlists;
     private javax.swing.JDialog jd_usuarios;
+    private javax.swing.JLabel jl_cancion;
     private javax.swing.JLabel jl_play;
+    private javax.swing.JPanel jp_favoritos;
     private javax.swing.JTree jt_playlists;
+    private javax.swing.JProgressBar pb_favoritos;
     private javax.swing.JTextField tf_artista;
     private javax.swing.JTextField tf_artistaA;
     private javax.swing.JTextField tf_duracion;

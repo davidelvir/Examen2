@@ -9,6 +9,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.swing.JLabel;
+import javax.swing.JProgressBar;
 
 /**
  *
@@ -18,9 +19,11 @@ public class Hilo_Play extends Thread{
     private JLabel hora;
     private Cancion c;
     private boolean vive;
-    public Hilo_Play(JLabel hora, Cancion c){
+    private JProgressBar b;
+    public Hilo_Play(JLabel hora, Cancion c, JProgressBar b){
         this.hora = hora;
         this.c = c;
+        this.b = b;
         vive = true;
     }
 
@@ -58,9 +61,10 @@ public class Hilo_Play extends Thread{
             String p ="";
             p+=playing;
             hora.setText(p);
-            /*if(playing == c.getDuracion()){
+            b.setValue(playing);
+            if(playing == c.getDuracion()){
                 vive = false;
-            }*/
+            }
             try {
                 Thread.sleep(1000);
             } catch (Exception e) {
