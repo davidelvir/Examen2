@@ -6,25 +6,23 @@
 package examen2;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 /**
  *
  * @author David
  */
-public class Cancion implements Serializable{
+public class Album implements Serializable{
     private String nombre;
     private String artista;
-    private int duracion;
-    private String genero;
+    private ArrayList<Cancion>canciones = new ArrayList();
 
-    public Cancion(String nombre, String artista, int duracion, String genero) {
-        this.nombre = nombre;
-        this.artista = artista;
-        this.duracion = duracion;
-        this.genero = genero;
+    public Album() {
     }
 
-    public Cancion() {
+    public Album(String nombre, String artista) {
+        this.nombre = nombre;
+        this.artista = artista;
     }
 
     public String getNombre() {
@@ -43,23 +41,15 @@ public class Cancion implements Serializable{
         this.artista = artista;
     }
 
-    public int getDuracion() {
-        return duracion;
+    public ArrayList<Cancion> getCanciones() {
+        return canciones;
     }
 
-    public void setDuracion(int duracion) {
-        this.duracion = duracion;
+    public void setCanciones(ArrayList<Cancion> canciones) {
+        this.canciones = canciones;
     }
-
-    public String getGenero() {
-        return genero;
-    }
-
-    public void setGenero(String genero) {
-        this.genero = genero;
-    }
+    
     public String toString(){
         return nombre;
     }
-    
 }
