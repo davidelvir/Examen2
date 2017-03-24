@@ -26,6 +26,14 @@ public class Playlist implements Serializable{
         return canciones;
     }
 
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
     public void setCanciones(ArrayList<Cancion> canciones) {
         this.canciones = canciones;
     }

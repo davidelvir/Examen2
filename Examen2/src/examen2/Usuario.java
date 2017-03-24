@@ -18,7 +18,7 @@ public class Usuario implements Serializable{
     private int edad;
     private String password;
     private ArrayList<Playlist>playlists = new ArrayList();
-    private Playlist favoritos;
+    private ArrayList<Cancion>favoritos = new ArrayList();
 
     public Usuario(String nombre, String user, int edad, String password) {
         this.nombre = nombre;
@@ -66,21 +66,18 @@ public class Usuario implements Serializable{
         return playlists;
     }
 
+    public ArrayList<Cancion> getFavoritos() {
+        return favoritos;
+    }
+
+    public void setFavoritos(ArrayList<Cancion> favoritos) {
+        this.favoritos = favoritos;
+    }
+
     public void setPlaylists(ArrayList<Playlist> playlists) {
         this.playlists = playlists;
     }
-    public void setFavorito(Cancion c){
-        this.favoritos.setCancion(c);
-    }
-    public Playlist getFavoritos() {
-        return favoritos;
-    }
-    public Cancion getFavorita(int x) {
-        return favoritos.getCancion(x);
-    }
-    public void setFavoritos(Playlist favoritos) {
-        this.favoritos = favoritos;
-    }
+    
 
     @Override
     public String toString() {
